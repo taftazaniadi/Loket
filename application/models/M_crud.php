@@ -19,6 +19,13 @@ class M_crud extends CI_Model {
 		$sql = $this->db->get($table);
 		return $sql;
 	}
+	public function get_max_id_new($table, $field, $where){
+		$this->db->select_max($field);
+		$this->db->join('loket', 'transaksi.id_loket = loket.id_loket', 'left');
+		$this->db->where($where);
+		$sql = $this->db->get($table);
+		return $sql;
+	}
 	public function get_group_id($table, $group_by){
 		$this->db->group_by($group_by);
 		$this->db->order_by($group_by." DESC");
@@ -58,7 +65,7 @@ class M_crud extends CI_Model {
 		$sql=$this->db->get($table);
 		return $sql;
 	}
-	public function fetch_data($table, $field, $num, $offset){
+	public function fetch_data($table, $field, $offset){
 		empty($offset) ? $offset = 0 : $offset;
 
 		$this->db->query("SET @no=".$offset);
@@ -66,7 +73,7 @@ class M_crud extends CI_Model {
 		$this->db->group_by($field);
 		$this->db->order_by($field, 'DESC');
 
-		$data = $this->db->get($table, $num, $offset);
+		$data = $this->db->get($table, $offset);
 
 		return $data->result();
 	}

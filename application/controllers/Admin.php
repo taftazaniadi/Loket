@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
 		$config['base_url'] 		= site_url('admin/index');
 		$config['total_rows']	 	= $this->M_crud->get_group_id('transaksi', 'tgl')->num_rows();
-		$config['per_page']			= '6';
+		// $config['per_page']			= '6';
 		$config['num_links']		= 5;
 		$config['full_tag_open']	= '<ul class="pagination">';
 		$config['full_tag_close']	= '</ul>';
@@ -45,7 +45,7 @@ class Admin extends CI_Controller {
 
 		// buat pagination
 		$data['halaman'] = $this->pagination->create_links();
-		$data['hasil'] = $this->M_crud->fetch_data('transaksi', 'tgl', $config['per_page'], $id);
+		$data['hasil'] = $this->M_crud->fetch_data('transaksi', 'tgl', $id);
 		$this->load->view('layout', $data);
 	}
 

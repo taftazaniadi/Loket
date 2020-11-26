@@ -11,6 +11,7 @@ if($this->session->userdata('level') == 'Penjaga')
 			//<li><a href='".site_url('penjaga/')."'>Pilih Loket</a></li>
 }
 else{
-	echo "Welcome to Loket ".$instansi->instansi; 
+	// echo "Welcome to Loket ".$instansi->instansi; 
+	echo "Welcome";
 }
 ?>

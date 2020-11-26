@@ -115,7 +115,25 @@ class Welcome extends CI_Controller {
 			echo $antri;
 		}
 		else{
-			echo "&nbsp;";
+			echo "-";
+		}
+	}
+	public function get_antri_new(){
+		$antri = $this->M_crud->get_max_id_new('transaksi', 'no_antrian', array('tgl' => date('dmY')))->row('no_antrian');
+		if($antri > 0){
+			echo $antri;
+		}
+		else{
+			echo "-";
+		}
+	}
+	public function get_antri_loket(){
+		$antri = $this->M_crud->get_max_id_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
+		if($antri > 0){
+			echo $antri;
+		}
+		else{
+			echo "-";
 		}
 	}
 }

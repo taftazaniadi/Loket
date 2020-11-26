@@ -15,7 +15,7 @@ nav li a:hover{
 	color: #007eff;
 }
 .selanjutnya{
-	background: #0e2335;
+	background: #390A61;
 	color: #fff;
 	padding: 10px 52px 10px 52px;
 }
@@ -40,7 +40,7 @@ nav li a:hover{
 	padding: 10px 90px 10px 90px;
 }
 .panggil{
-	background: #0e2335;
+	background: #390A61;
 	color: #fff;
 	padding: 10px 90px 10px 90px;
 }
@@ -48,7 +48,7 @@ nav li a:hover{
 	position: relative;
 }
 header {
-	background: #0e2335;
+	background: #390A61;
 	margin: auto;
 	max-height: 190px;
 	width: 100%;
@@ -66,27 +66,36 @@ header {
 }
 .instansi{
 	padding-top: 0px;
+	margin-bottom: 10px;
 }
 .instansi a{
 	text-decoration: none;
 }
-h1{
+h3{
 	color: white;
 	text-align: center;
-	font-size: 62px;
+	font-size: 28px;
 }
-h3{
+h4{
 	color: white;
 	text-align: center;
 	margin: 0px;
 }
+h5{
+	color: white;
+	text-align: center;
+	margin: 0px;
+}
+hr.new5 {
+  border: 3px solid #390A61;
+}
 .menu{
-	background: #0f0f0f;
+	background: #FF971E;
 	padding: 10px;
 	min-height: 47px;
 }
 footer{
-	background: #0f0f0f;
+	background: #390A61;
 	min-height: 50px;
 }
 .footer{
@@ -107,7 +116,7 @@ footer{
 	border: 1px solid #D0D0D0;
 }
 .loket{
-	background: #0e2335;
+	background: #390A61;
 	font-size: 32px;
 	text-align: center;
 	color: #fff;
@@ -174,7 +183,7 @@ footer{
 	}
 	#menu {
 		display: none;
-		background: #0f0f0f;
+		background: #FF971E;
 		padding: 10px;
 		min-height: 47px;
 		width: 100%;
@@ -214,7 +223,7 @@ footer{
 		margin-bottom: 10px;
 	}
 	.panggil{
-		background: #0e2335;
+		background: #390A61;
 		color: #fff;
 		padding: 10px 90px 10px 90px;
 		margin-bottom: 10px;
