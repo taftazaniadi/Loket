@@ -21,7 +21,7 @@ $antrian = $antrian->no_antrian;
 
 	})
 </script>
-<audio id="suarabel" src="<?php echo base_url('audio/Airport_Bell_awal.MP3'); ?>"></audio>
+<audio id="suarabel" src="<?php echo base_url('audio/Airport_Bell_awal.mp3'); ?>"></audio>
 <audio id="suarabel_akhir" src="<?php echo base_url('audio/Airport_Bell_akhir.mp3'); ?>"></audio>
 <audio id="suarabelnomorurut" src="<?php echo base_url('audio/antrian/nomor-antrian.mp3'); ?>"></audio> 
 <audio id="diloket" src="<?php echo base_url('audio/antrian/loket.MP3'); ?>"></audio>
