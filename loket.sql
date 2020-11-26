@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jan 2020 pada 04.13
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 5.6.40
+-- Host: localhost:3306
+-- Generation Time: Nov 26, 2020 at 11:33 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.1.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `agenda`
+-- Table structure for table `agenda`
 --
 
 CREATE TABLE `agenda` (
@@ -35,18 +35,18 @@ CREATE TABLE `agenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2;
 
 --
--- Dumping data untuk tabel `agenda`
+-- Dumping data for table `agenda`
 --
 
 INSERT INTO `agenda` (`id_agenda`, `agenda`, `file`) VALUES
-(1, 'Osis', 'agenda_1510110916.jpg'),
-(2, 'Ga tau', 'agenda_1510111008.jpg'),
-(3, 'Ini nama agenda', 'agenda_1510127207.jpg');
+(1, 'Kuliah Gratis', 'agenda_1606431059.png'),
+(2, 'Entreprenueurial Model', 'agenda_1606430884.png'),
+(3, 'E-Learning Waskita - amikom.ac.id', 'agenda_1606430761.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `instansi`
+-- Table structure for table `instansi`
 --
 
 CREATE TABLE `instansi` (
@@ -58,16 +58,16 @@ CREATE TABLE `instansi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `instansi`
+-- Dumping data for table `instansi`
 --
 
 INSERT INTO `instansi` (`id_instansi`, `instansi`, `telp`, `alamat`, `logo`) VALUES
-(1, 'SMK Informatika Utama', '021-321312', 'Jl. JCC Komplek PLN P2B TJBB No.61 Krukut Limo Depok', 'logo_1383876609.png');
+(1, 'DIREKTORAT ADMINISTRASI AKADEMIK DAN KEMAHASISWAAN', '0274-884201', 'UNIVERSITAS AMIKOM YOGYAKARTA\r\nJL. RINGROAD UTARA, CONDONG CATUR, DEPOK, SLEMAN\r\nGEDUNG 4 Lantai 1', 'logo_1606423626.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `karyawan`
+-- Table structure for table `karyawan`
 --
 
 CREATE TABLE `karyawan` (
@@ -81,21 +81,21 @@ CREATE TABLE `karyawan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `karyawan`
+-- Dumping data for table `karyawan`
 --
 
 INSERT INTO `karyawan` (`username`, `nama`, `telp`, `alamat`, `password`, `level`, `id_loket`) VALUES
 ('aaa', 'Aaaa', '08967987568', 'Jl. Hkasdas', '3b3690fba8bd08059eae130425396eb05ded1b7d', 'Penjaga', 6),
 ('admin', 'admin', '08384494040', '-', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'Admin', NULL),
 ('loket1', 'Loket 1', '08984494040', 'aaa', '8cec719e846091925976f10fe19891310fee57db', 'Penjaga', 6),
-('loket2', 'Loket 2', '083823120', 'Jl. jalan', '3b3690fba8bd08059eae130425396eb05ded1b7d', 'Penjaga', 7),
+('loket2', 'Loket 2', '083823120', 'Jl. jalan', 'e0748e097924471fcad9f5056967f07c5f24c9bc', 'Penjaga', 7),
 ('loket3', 'Loket 3', '08343294', 'Cinere', '3b3690fba8bd08059eae130425396eb05ded1b7d', 'Penjaga', 8),
 ('loket4', 'Loket 4', '083458345', 'Gandul', '3b3690fba8bd08059eae130425396eb05ded1b7d', 'Penjaga', 9);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `loket`
+-- Table structure for table `loket`
 --
 
 CREATE TABLE `loket` (
@@ -106,11 +106,11 @@ CREATE TABLE `loket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `loket`
+-- Dumping data for table `loket`
 --
 
 INSERT INTO `loket` (`id_loket`, `loket`, `suara`, `status`) VALUES
-(6, '1', NULL, 1),
+(6, '1', NULL, 0),
 (7, '2', NULL, 0),
 (8, '3', NULL, 0),
 (9, '4', NULL, 0);
@@ -118,7 +118,7 @@ INSERT INTO `loket` (`id_loket`, `loket`, `suara`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `text_jalan`
+-- Table structure for table `text_jalan`
 --
 
 CREATE TABLE `text_jalan` (
@@ -128,20 +128,18 @@ CREATE TABLE `text_jalan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `text_jalan`
+-- Dumping data for table `text_jalan`
 --
 
 INSERT INTO `text_jalan` (`id_text`, `text`, `img`) VALUES
-(1, 'Nasir sayang saropahahaha', 'text_1510111034.png'),
-(2, 'Saropah sayang alpi', 'text_1510111058.jpg'),
-(3, 'alpi sayang maymunah', 'text_1510111073.jpg'),
-(4, 'Karena kau buktikan untukku satu kisah tentang cinta', 'text_1510125601.png'),
-(5, 'Ayu si tukang ngupil', 'text_1510127085.jpg');
+(3, 'REKAPITULASI PERSENSI KEHADIRAN LINGBIS GANJIL 2020/2021 - daak.amikom.ac.id', 'text_1606430605.png'),
+(4, 'JADWAL PENGGANTI LINGKUNGAN BISNIS TGL 14 NOVEMBER MENJADI 21 NOVEMBER 2020 - daak.amikom.ac.id', 'text_1606430583.png'),
+(5, 'Jadwal Pengambilan Ijazah dan Transkip Yudisium April - Juni 2020 - daak.amikom.ac.id', 'text_1606430548.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -153,7 +151,7 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `transaksi`
+-- Dumping data for table `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `no_antrian`, `id_loket`, `username`, `tgl`) VALUES
@@ -198,81 +196,87 @@ INSERT INTO `transaksi` (`id_transaksi`, `no_antrian`, `id_loket`, `username`, `
 (57, 28, 0, NULL, 17112017),
 (58, 29, 0, NULL, 17112017),
 (59, 1, 6, 'loket1', 10012020),
-(60, 2, 0, NULL, 10012020);
+(60, 2, 0, NULL, 10012020),
+(61, 1, 0, NULL, 25112020),
+(62, 1, 6, 'loket1', 26112020),
+(63, 2, 6, 'loket1', 26112020),
+(64, 3, 6, 'loket1', 26112020),
+(65, 4, 7, 'loket2', 26112020),
+(66, 1, 7, 'loket2', 27112020);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `agenda`
+-- Indexes for table `agenda`
 --
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`id_agenda`);
 
 --
--- Indeks untuk tabel `instansi`
+-- Indexes for table `instansi`
 --
 ALTER TABLE `instansi`
   ADD PRIMARY KEY (`id_instansi`);
 
 --
--- Indeks untuk tabel `karyawan`
+-- Indexes for table `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indeks untuk tabel `loket`
+-- Indexes for table `loket`
 --
 ALTER TABLE `loket`
   ADD PRIMARY KEY (`id_loket`);
 
 --
--- Indeks untuk tabel `text_jalan`
+-- Indexes for table `text_jalan`
 --
 ALTER TABLE `text_jalan`
   ADD PRIMARY KEY (`id_text`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `agenda`
+-- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
   MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `instansi`
+-- AUTO_INCREMENT for table `instansi`
 --
 ALTER TABLE `instansi`
   MODIFY `id_instansi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `loket`
+-- AUTO_INCREMENT for table `loket`
 --
 ALTER TABLE `loket`
-  MODIFY `id_loket` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_loket` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `text_jalan`
+-- AUTO_INCREMENT for table `text_jalan`
 --
 ALTER TABLE `text_jalan`
   MODIFY `id_text` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
