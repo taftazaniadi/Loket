@@ -22,30 +22,31 @@ class Admin extends CI_Controller {
 		$config['total_rows']	 	= $this->M_crud->get_group_id('transaksi', 'tgl')->num_rows();
 		// $config['per_page']			= '6';
 		$config['num_links']		= 5;
-		$config['full_tag_open']	= '<ul class="pagination">';
-		$config['full_tag_close']	= '</ul>';
-		$config['first_link']		= 'First';
-		$config['last_link']		= 'Last';
-		$config['first_tag_open']	= '<li>';
-		$config['first_tag_close']	= '</li>';
-		$config['prev_link']		= '&laquo';
-		$config['prev_tag_open']	= '<li class="prev">';
-		$config['porev_tag_close']	= '</li>';
-		$config['next_link']		= '&raquo';
-		$config['next_tag_open']	= '<li>';
-		$config['next_tag_close']	= '</li>';
-		$config['last_tag_open']	= '<li>';
-		$config['last_tag_close']	= '</li>';
-		$config['cur_tag_open']		= '<li class="active"><a href="">';
-		$config['cur_tag_close']	= '</a></li>';
-		$config['num_tag_open']		= '<li>';
-		$config['num_tag_close']	= '</li>';
+		// $config['full_tag_open']	= '<ul class="pagination">';
+		// $config['full_tag_close']	= '</ul>';
+		// $config['first_link']		= 'First';
+		// $config['last_link']		= 'Last';
+		// $config['first_tag_open']	= '<li>';
+		// $config['first_tag_close']	= '</li>';
+		// $config['prev_link']		= '&laquo';
+		// $config['prev_tag_open']	= '<li class="prev">';
+		// $config['porev_tag_close']	= '</li>';
+		// $config['next_link']		= '&raquo';
+		// $config['next_tag_open']	= '<li>';
+		// $config['next_tag_close']	= '</li>';
+		// $config['last_tag_open']	= '<li>';
+		// $config['last_tag_close']	= '</li>';
+		// $config['cur_tag_open']		= '<li class="active"><a href="">';
+		// $config['cur_tag_close']	= '</a></li>';
+		// $config['num_tag_open']		= '<li>';
+		// $config['num_tag_close']	= '</li>';
 
 		$this->pagination->initialize($config);
 
 		// buat pagination
 		$data['halaman'] = $this->pagination->create_links();
 		$data['hasil'] = $this->M_crud->fetch_data('transaksi', 'tgl', $id);
+		$data['report'] = $this->M_crud->report();
 		$this->load->view('layout', $data);
 	}
 

@@ -18,8 +18,8 @@
 										<tr>
 											<th width="3px">No</th>
 											<th style="text-align: center;">Waktu</th>
+											<th style="text-align: center;">Layanan</th>
 											<th width="130px">Jumlah Antrian</th>
-											<!-- <th width="10px" nowrap="">Aksi</th> -->
 										</tr>
 									</thead>
 									<tbody>
@@ -29,7 +29,7 @@
 										"07" => "Juli", "08" => "Agustus", "09" => "September",
 										"10" => "Oktober", "11" => "November", "12" => "Desember");
 										$no=0;
-										foreach ($hasil as $row) { 
+										foreach ($report as $row) { 
 											$no++;
 											$b=$bulan[substr($row->tgl, 2,2)];
 											$waktu=substr($row->tgl, 0,2)." ".$b." ".substr($row->tgl, -4);
@@ -37,11 +37,8 @@
 											<tr>
 												<td><?php echo $no; ?></td>
 												<td><?php echo $waktu; ?></td>
-												<td style="text-align: center;">
-													<?php echo $this->M_crud->get_id('transaksi', array('tgl' => $row->tgl))->num_rows(); ?>
-													
-												</td>
-												<!-- <td><a href="<?php echo site_url('admin/'); ?>" class="btn btn-info <?php echo $a; ?>">Hapus</a></td> -->
+												<td><?php echo $row->jenis_pelayanan; ?></td>
+												<td style="text-align: center;"><?=$row->jml?></td>
 											</tr>
 										<?php } ?>
 									</tbody>

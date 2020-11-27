@@ -96,6 +96,11 @@ class M_crud extends CI_Model {
 
 		return $data->result();
 	}
+	public function report(){
+		$sql = $this->db->query('SELECT jenis_pelayanan, tgl, COUNT(id_transaksi) AS jml FROM transaksi GROUP BY tgl, jenis_pelayanan ORDER BY tgl DESC');
+
+		return $sql->result();
+	}
 	public function slide($limit){
 		$sql = $this->db->query("SELECT * FROM agenda ORDER BY id_agenda DESC LIMIT $limit");
 		return $sql;
