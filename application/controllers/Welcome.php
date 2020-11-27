@@ -128,7 +128,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 	public function get_antri_loket(){
-		$antri = $this->M_crud->get_max_id_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
+		$antri = $this->M_crud->get_loket_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
 		if($antri > 0){
 			echo $antri;
 		}

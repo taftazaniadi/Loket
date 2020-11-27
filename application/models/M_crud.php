@@ -23,6 +23,19 @@ class M_crud extends CI_Model {
 		$this->db->select_max($field);
 		$this->db->join('loket', 'transaksi.id_loket = loket.id_loket', 'left');
 		$this->db->where($where);
+		$this->db->where('transaksi.id_loket !=', 0);
+		$this->db->order_by('id_transaksi', 'DESC');
+		$this->db->limit(1);
+		$sql = $this->db->get($table);
+		return $sql;
+	}
+	public function get_loket_new($table, $field, $where){
+		// $this->db->select_max($field);
+		$this->db->join('loket', 'transaksi.id_loket = loket.id_loket', 'left');
+		$this->db->where($where);
+		$this->db->where('transaksi.id_loket !=', 0);
+		$this->db->order_by('id_transaksi', 'DESC');
+		$this->db->limit(1);
 		$sql = $this->db->get($table);
 		return $sql;
 	}

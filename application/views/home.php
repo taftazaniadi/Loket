@@ -57,7 +57,7 @@
 				</div>
 				<hr class="new5">
 				<div class="antrian" id="namaLoket">
-					<?php $antri = $this->M_crud->get_max_id_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
+					<?php $antri = $this->M_crud->get_loket_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
 					?>
 					<script type="text/javascript">
 						setInterval(function(){
