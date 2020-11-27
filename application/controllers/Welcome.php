@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
 		$data['instansi'] = $this->M_crud->show('instansi', 'id_instansi DESC')->row();
 		$data['agenda'] = $this->M_crud->slide('0,1');
 		$data['agenda1'] = $this->M_crud->slide('1,10');
-		$data['loket'] = $this->M_crud->show('loket', 'loket ASC')->result();
+		$data['loket'] = $this->M_crud->show('loket', 'jenis_loket ASC')->result();
 		$data['content'] = 'home';
 		$data['menu'] = 'menu';
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
@@ -23,8 +23,11 @@ class Welcome extends CI_Controller {
 		$data['agenda'] = $this->M_crud->show('agenda', 'id_agenda DESC')->row();
 		$data['loket'] = $this->M_crud->show('loket', 'loket ASC')->result();
 		$data['content'] = 'antrian';
-		$where =array('tgl' => date('dmY'));
+		$where =array('tgl' => date('dmY'), 'jenis_pelayanan' => 'DAAK');
 		$data['antrian'] = $this->M_crud->get_max_id('transaksi', 'no_antrian', $where);
+
+		$where2 = array('tgl' => date('dmY'), 'jenis_pelayanan' => 'DPK');
+		$data['antrianDPK'] = $this->M_crud->get_max_id('transaksi', 'no_antrian', $where2);
 		$data['menu'] = 'menu';
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
 		$this->load->view('layout', $data);
@@ -52,7 +55,7 @@ class Welcome extends CI_Controller {
 	              		 </center>";
 				}
 				else{
-					$session = array('username' => $cek->row('username'), 'nama' => $cek->row('nama'), 'level' => $cek->row('level'), 'loket' => $cek->row('id_loket'));
+					$session = array('username' => $cek->row('username'), 'nama' => $cek->row('nama'), 'level' => $cek->row('level'), 'loket' => $cek->row('id_loket'), 'jenis_loket' => $cek1->row('jenis_loket'));
 					$this->session->set_userdata($session);
 					$this->session->set_flashdata("pesan", "<br><div class='alert alert-success'>
 	              		 <p class='text-danger'>Selamat datang <b>".$this->session->userdata('nama')."</b></p></div>");
@@ -87,15 +90,15 @@ class Welcome extends CI_Controller {
 		redirect('welcome/');
 	}
 
-	public function tambah_antrian($id){
+	public function tambah_antrian($id, $parameter){
 		$no_antrian = $id+1;
 		$tgl = date('dmY');
-		$cek = $this->M_crud->get_id('transaksi', array('no_antrian' => $no_antrian, 'tgl' => $tgl))->num_rows();
+		$cek = $this->M_crud->get_id('transaksi', array('no_antrian' => $no_antrian, 'tgl' => $tgl, 'jenis_pelayanan' => $parameter))->num_rows();
 		if($cek > 0){	
 			redirect('welcome/antrian/');
 		}
 		else{
-			$this->M_crud->add('transaksi', array('no_antrian' => $no_antrian, 'tgl' => $tgl));
+			$this->M_crud->add('transaksi', array('no_antrian' => $no_antrian, 'tgl' => $tgl, 'jenis_pelayanan' => $parameter));
 		}
 		redirect('welcome/printini/');
 	}
@@ -104,8 +107,11 @@ class Welcome extends CI_Controller {
 		$data['instansi'] = $this->M_crud->show('instansi', 'id_instansi DESC')->row();
 		$data['menu'] = 'menu';
 		$data['content'] = 'print';
-		$where =array('tgl' => date('dmY'));
+		$where =array('tgl' => date('dmY'), 'jenis_pelayanan' => 'DAAK');
 		$data['antrian'] = $this->M_crud->get_max_id('transaksi', 'no_antrian', $where);
+
+		$where2 = array('tgl' => date('dmY'), 'jenis_pelayanan' => 'DPK');
+		$data['antrianDPK'] = $this->M_crud->get_max_id('transaksi', 'no_antrian', $where2);
 		$this->load->view('layout', $data);
 	}
 	public function get_antri(){
@@ -128,9 +134,9 @@ class Welcome extends CI_Controller {
 		}
 	}
 	public function get_antri_loket(){
-		$antri = $this->M_crud->get_loket_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
-		if($antri > 0){
-			echo $antri;
+		$antri = $this->M_crud->get_loket_new('transaksi', 'loket', array('tgl' => date('dmY')))->row();
+		if($this->db->affected_rows() > 0){
+			echo $antri->loket." - ".$antri->jenis_loket;
 		}
 		else{
 			echo "-";

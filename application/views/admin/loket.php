@@ -22,6 +22,7 @@
                       <th width="3px">No</th>
                       <th width="200px;">Nama Loket</th>
                       <th width="20px;">Status</th>
+                      <th width="20px;">Jenis Loket</th>
                       <th width="110px">Aksi</th>
                     </tr>
                   </thead>
@@ -35,6 +36,7 @@
                         <td><?php echo $no; ?></td>
                         <td>Loket <?php echo $row->loket; ?></td>
                         <td><?php if($row->status == 0){echo "Kosong";}else{echo "Sedang digunakan";} ?></td>
+                        <td><?=$row->jenis_loket?></td>
                         <td><a href="#<?php echo $row->id_loket; ?>" data-toggle="modal" class="btn btn-success"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;<a href="<?php echo site_url('admin/del_loket/'.$row->id_loket); ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
                       </tr>
 
@@ -68,6 +70,11 @@
                                     <select name="status" class="form-control">
                                       <option value="0" <?php echo $a; ?>>Kosong</option>
                                       <option value="1" <?php echo $b; ?>>Sedang digunakan</option>
+                                    </select>
+                                  <label for="sel1">Jenis Loket</label>
+                                    <select name="jenis_loket" class="form-control">
+                                      <option value="DAAK" <?=($row->jenis_loket == 'DAAK' ? 'selected' : '')?>>DAAK</option>
+                                      <option value="DPK" <?=($row->jenis_loket == 'DPK' ? 'selected' : '')?>>DPK</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -122,6 +129,11 @@
               <select name="status" class="form-control">
                 <option value="0">Kosong</option>
                 <option value="1">Sedang digunakan</option>
+              </select>
+            <label for="sel1">Jenis Loket</label>
+              <select name="jenis_loket" class="form-control">
+                <option value="DAAK">DAAK</option>
+                <option value="DPK">DPK</option>
               </select>
           </div>
           <div class="col-md-3"></div>

@@ -24,6 +24,8 @@
                       <th width="130px">Telp</th>
                       <th>Alamat</th>
                       <th>username</th>
+                      <th>Level</th>
+                      <th>Loket</th>
                       <th width="110px">Aksi</th>
                     </tr>
                   </thead>
@@ -39,6 +41,8 @@
                         <td><?php echo $row->telp; ?></td>
                         <td><?php echo $row->alamat; ?></td>
                         <td><?php echo $row->username; ?></td>
+                        <td><?=$row->level?></td>
+                        <td><?=$row->loket." - ".$row->jenis_loket?></td>
                         <td><a href="#<?php echo $row->username; ?>" class="btn btn-success" data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;<a href="<?php echo site_url('admin/del_karyawan/'.$row->username); ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
                       </tr>
 
@@ -80,17 +84,20 @@
                                       <option <?php echo $selected; ?>>Admin</option>
                                       <option value="Penjaga" <?php echo $selected1; ?>>Penjaga Loket</option>
                                     </select>
+                                   
+                                <?php if($row->level != "Admin"):?>
                                   <label for="sel1" id="l">Loket</label>
                                   <?php $el=$this->M_crud->get_id('loket', array('id_loket' => $row->id_loket))->row(); ?>
                                     <select name="id_loket" class="form-control" id="id_loket">
-                                      <option value="<?php echo $el->id_loket; ?>"><?php echo $el->loket; ?></option>
+                                      <option value="<?php echo $el->id_loket; ?>"><?php echo $el->loket." - ".$el->jenis_loket; ?></option>
                                 <?php
 
                                   $loketnot = $this->M_crud->get_id('loket', array('id_loket <>' => $row->id_loket));
                                   foreach ($loketnot->result() as $lo) { ?>
-                                      <option value="<?php echo $lo->id_loket; ?>"><?php echo $lo->loket; ?></option>
+                                      <option value="<?php echo $lo->id_loket; ?>" <?=($lo->id_loket == $row->id_loket ? 'selected' : '')?>><?php echo $lo->loket." - ".$lo->jenis_loket; ?></option>
                                 <?php } ?>
                                     </select>
+                                <?php endif;?>
                                   <label for="sel1">Password</label>
                                     <input type="password" name="password" class="form-control">
                                     <p>*Kosongkan Bila tidak ingin mengganti password</p>
@@ -161,7 +168,7 @@
                 <option value="0">--Pilih Loket--</option>
           <?php
             foreach ($loket->result() as $lo) { ?>
-                <option value="<?php echo $lo->id_loket; ?>"><?php echo $lo->loket; ?></option>
+                <option value="<?php echo $lo->id_loket; ?>"><?php echo $lo->loket." - ".$lo->jenis_loket; ?></option>
           <?php } ?>
               </select>
             <label for="sel1">Password</label>

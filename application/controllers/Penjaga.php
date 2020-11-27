@@ -36,9 +36,9 @@ class Penjaga extends CI_Controller {
 	}
 	public function antrian_selanjutnya(){
 		$tgl = date('dmY');
-		$where =array('id_loket <' => 1, 'tgl' => $tgl);
+		$where =array('id_loket <' => 1, 'tgl' => $tgl, 'jenis_pelayanan' => $this->session->userdata('jenis_loket'));
 		$antrian = $this->M_crud->get_id('transaksi', $where, 'no_antrian DESC');;
-		$data=array('no_antrian' => $antrian->row('no_antrian'), 'id_loket' => $this->session->userdata('loket'), 'username' => $this->session->userdata('username'), 'tgl' => $tgl);
+		$data=array('no_antrian' => $antrian->row('no_antrian'), 'id_loket' => $this->session->userdata('loket'), 'username' => $this->session->userdata('username'), 'tgl' => $tgl, 'panggil' => date('Y-m-d H:i:s'));
 		//$this->M_crud->del('transaksi', array('no_antrian' => $antrian));
 		$w=array('id_transaksi' => $antrian->row('id_transaksi'));
 		$this->M_crud->edit('transaksi', $data, $w);

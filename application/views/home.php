@@ -85,8 +85,11 @@
 			<div class="col-md-3">
 				<div class="box">
 					<div class="loket" id="loket">
-						Loket <?php echo $row->loket; ?>
+						Loket <?php echo $row->loket." - ".$row->jenis_loket; ?>
 					</div>
+					<center>
+						<b><h2 style="font-size : 18px;">No Antrian</h2></b>
+					</center>
 					<div class="antrian" id="antrian<?php echo $row->id_loket; ?>">
 						<?php $antri = $this->M_crud->get_max_id('transaksi', 'no_antrian', array('id_loket' => $row->id_loket, 'tgl' => date('dmY')))->row('no_antrian');
 						?>

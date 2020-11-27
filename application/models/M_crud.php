@@ -20,11 +20,12 @@ class M_crud extends CI_Model {
 		return $sql;
 	}
 	public function get_max_id_new($table, $field, $where){
-		$this->db->select_max($field);
+		// $this->db->select_max($field);
+		$this->db->select($field);
 		$this->db->join('loket', 'transaksi.id_loket = loket.id_loket', 'left');
 		$this->db->where($where);
 		$this->db->where('transaksi.id_loket !=', 0);
-		$this->db->order_by('id_transaksi', 'DESC');
+		$this->db->order_by('panggil', 'DESC');
 		$this->db->limit(1);
 		$sql = $this->db->get($table);
 		return $sql;
@@ -34,7 +35,7 @@ class M_crud extends CI_Model {
 		$this->db->join('loket', 'transaksi.id_loket = loket.id_loket', 'left');
 		$this->db->where($where);
 		$this->db->where('transaksi.id_loket !=', 0);
-		$this->db->order_by('id_transaksi', 'DESC');
+		$this->db->order_by('panggil', 'DESC');
 		$this->db->limit(1);
 		$sql = $this->db->get($table);
 		return $sql;
@@ -83,6 +84,11 @@ class M_crud extends CI_Model {
 
 		$this->db->query("SET @no=".$offset);
 		$this->db->select('*,(@no:=@no+1) AS nomor');
+
+		if($table == "karyawan"){
+			$this->db->join('loket', 'karyawan.id_loket = loket.id_loket', 'left');
+		}
+
 		$this->db->group_by($field);
 		$this->db->order_by($field, 'DESC');
 

@@ -221,20 +221,22 @@ class Admin extends CI_Controller {
 	public function add_loket(){
 		$loket=htmlspecialchars($this->input->post('loket'));
 		$status=htmlspecialchars($this->input->post('status'));
-		$cek=$this->M_crud->get_id('loket', array('loket' => $loket))->num_rows();
+		$jenis=htmlspecialchars($this->input->post('jenis_loket'));
+		$cek=$this->M_crud->get_id('loket', array('loket' => $loket, 'jenis_loket' => $jenis))->num_rows();
 		if($cek > 0){
 			echo "<script>alert('Nama Loket Sudah Ada'); location='".site_url('admin/loket/')."' </script>";
 		}
 		else{
-			$this->M_crud->add('loket',  array('loket' => $loket, 'status' => $status));
+			$this->M_crud->add('loket',  array('loket' => $loket, 'status' => $status, 'jenis_loket' => $jenis));
 			redirect('admin/loket/');
 		}
 	}
 	public function edit_loket($id){
 		$loket=htmlspecialchars($this->input->post('loket'));
 		$status=htmlspecialchars($this->input->post('status'));
+		$jenis=htmlspecialchars($this->input->post('jenis_loket'));
 		$where=array('id_loket' => $id);
-		$this->M_crud->edit('loket', array('loket' => $loket, 'status' => $status), $where);
+		$this->M_crud->edit('loket', array('loket' => $loket, 'status' => $status, 'jenis_loket' => $jenis), $where);
 		redirect('admin/loket');
 	}
 	public function del_loket($id){

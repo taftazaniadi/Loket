@@ -1,5 +1,6 @@
 <?php
 $antrian = $antrian->no_antrian;
+$jenis_pelayanan = $this->session->userdata('jenis_loket');
 ?>
 <script type="text/javascript">
 	$(function(){
@@ -24,7 +25,9 @@ $antrian = $antrian->no_antrian;
 <audio id="suarabel" src="<?php echo base_url('audio/Airport_Bell_awal.mp3'); ?>"></audio>
 <audio id="suarabel_akhir" src="<?php echo base_url('audio/Airport_Bell_akhir.mp3'); ?>"></audio>
 <audio id="suarabelnomorurut" src="<?php echo base_url('audio/antrian/nomor-antrian.mp3'); ?>"></audio> 
-<audio id="diloket" src="<?php echo base_url('audio/antrian/loket.MP3'); ?>"></audio>
+<audio id="diloket" src="<?php echo base_url('audio/antrian/silahkan-menuju.mp3'); ?>"></audio>
+<audio id="daak" src="<?php echo base_url('audio/antrian/daak.mp3'); ?>"></audio>
+<audio id="dpk" src="<?php echo base_url('audio/antrian/dpk.mp3'); ?>"></audio>
 <?php
 if($antrian > 11 && $antrian < 20){ ?>
 	<audio id="antrian" src="<?php echo base_url('audio/antrian/'.substr($antrian, -1,1).'.MP3'); ?>"></audio>
@@ -104,10 +107,12 @@ else{ ?>
 			foreach ($lok as $l) { ?>
 				<div class="box">
 					<div class="loket">
-						Loket <?php echo $l->loket; ?>
+						Loket <?php echo $l->loket." - ".$l->jenis_loket; ?>
 					</div>
 					<div>
-						<h1 style="color:#000"><?php echo $this->M_crud->get_max_id('transaksi', 'no_antrian', array('id_loket' => $l->id_loket, 'tgl' => date('dmY'), 'id_loket !=' => $loket->id_loket ))->row('no_antrian') ?></h1>
+						<center>
+							<h1 style="color:#000"><?php echo $this->M_crud->get_max_id('transaksi', 'no_antrian', array('id_loket' => $l->id_loket, 'tgl' => date('dmY'), 'id_loket !=' => $loket->id_loket ))->row('no_antrian') ?></h1>
+						</center>						
 					</div>
 				</div>
 			<?php
@@ -120,7 +125,7 @@ else{ ?>
 			?>
 			<div class="box">
 				<div class="loket">
-					Loket <?php echo $loket->loket; ?>
+					Loket <?php echo $loket->loket." - ".$loket->jenis_loket; ?>
 				</div>
 				<div class="agenda">
 					<h1 id="a"><?php echo $antrian; ?></h1>
@@ -138,10 +143,12 @@ else{ ?>
 			foreach ($lok as $l) { ?>
 				<div class="box">
 					<div class="loket">
-						Loket <?php echo $l->loket; ?>
+						Loket <?php echo $l->loket." - ".$l->jenis_loket; ?>
 					</div>
 					<div>
-						<h1 style="color:#000"><?php echo $this->M_crud->get_max_id('transaksi', 'no_antrian', array('id_loket' => $l->id_loket, 'tgl' => date('dmY'), 'id_loket !=' => $loket->id_loket ))->row('no_antrian') ?></h1>
+						<center>
+							<h1 style="color:#000"><?php echo $this->M_crud->get_max_id('transaksi', 'no_antrian', array('id_loket' => $l->id_loket, 'tgl' => date('dmY'), 'id_loket !=' => $loket->id_loket ))->row('no_antrian') ?></h1>
+						</center>
 					</div>
 				</div>
 			<?php
@@ -513,19 +520,42 @@ else{ ?>
 		}
 		?>
 
-			totalwaktu=totalWaktu+500;
+			totalwaktu=totalWaktu+300;
 			setTimeout(function() {
 							document.getElementById('diloket').pause();
 							document.getElementById('diloket').currentTime=0;
 							document.getElementById('diloket').play();
 						}, totalwaktu);
 			
-			totalwaktu=totalwaktu+1000;
+			totalwaktu=totalwaktu+1800;
 			setTimeout(function() {
 							document.getElementById('loket<?php echo $loket->loket; ?>').pause();
 							document.getElementById('loket<?php echo $loket->loket; ?>').currentTime=0;
 							document.getElementById('loket<?php echo $loket->loket; ?>').play();
 						}, totalwaktu);	
+
+			<?php
+				if($jenis_pelayanan == "DAAK"){
+					?>
+						totalwaktu=totalwaktu+1000;
+						setTimeout(function() {
+										document.getElementById('daak').pause();
+										document.getElementById('daak').currentTime=0;
+										document.getElementById('daak').play();
+									}, totalwaktu);	
+					<?php
+				}
+				else{
+					?>
+						totalwaktu=totalwaktu+1000;
+						setTimeout(function() {
+										document.getElementById('dpk').pause();
+										document.getElementById('dpk').currentTime=0;
+										document.getElementById('dpk').play();
+									}, totalwaktu);	
+					<?php
+				}
+			?>
 
 			totalwaktu=totalwaktu+1200;
 			setTimeout(function() {
