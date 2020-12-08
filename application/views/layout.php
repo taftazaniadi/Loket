@@ -44,7 +44,7 @@ else{
 			<div class="col-md-8">
 				<div class="instansi">
 					<h3 onclick="window.location='<?php echo site_url($site); ?>'"><?php echo $instansi->instansi; ?></h3>
-					<h5 class="hidden-xs">No. Telp <?php echo $instansi->telp; ?></h5>
+					<!-- <h5 class="hidden-xs">No. Telp <?php echo $instansi->telp; ?></h5> -->
 					<h5 id="alamat" class="hidden-xs"><?php echo $instansi->alamat; ?></h5>
 				</div>
 			</div>
@@ -114,9 +114,31 @@ else{
 			$('#example_laporan').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'excel', 'pdf', 'print'
+            'excel', 'pdf', 'print',
+						{
+							text: 'Show All',
+                action: function ( e, dt, node, config ) {
+                    // alert( 'Button activated' );
+										$('#example_laporan').DataTable().search('').draw();
+                }
+						},
+						{
+							text: 'Only DAAK',
+                action: function ( e, dt, node, config ) {
+                    // alert( 'Button activated' );
+										$('#example_laporan').DataTable().search('DAAK').draw();
+                }
+						},
+						{
+							text: 'Only DPK',
+                action: function ( e, dt, node, config ) {
+                    // alert( 'Button activated' );
+										$('#example_laporan').DataTable().search('DPK').draw();
+                }
+						},
+						
         ]
-    } );
+			} );
 		} );
 	</script>
 

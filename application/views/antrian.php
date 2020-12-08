@@ -10,7 +10,7 @@
 					<h2 style="font-size: 18px;">Nomer Antrian Anda</h2>
 				</center>
 				<div class="agenda">
-					<h1 id="nomer"><?php echo $antrian->row('no_antrian'); 
+					<h1 id="nomer"><?php echo ($antrian->row('no_antrian') != null ? $antrian->row('no_antrian') : '-'); 
 					if($antrian->row('no_antrian') < 1){
 						$antri=0;
 					}

@@ -3,9 +3,9 @@
 			<li>Hi <?php echo $this->session->userdata('nama'); ?></li>
 		</ul>
 		<ul id="menu">
-			<li><a href="<?php echo site_url('admin/instansi/'); ?>">Instansi</a></li>
+			<!-- <li><a href="<?php echo site_url('admin/instansi/'); ?>">Instansi</a></li> -->
 			<li><a href="<?php echo site_url('admin/loket/'); ?>">Loket</a></li>
-			<li><a href="<?php echo site_url('admin/karyawan/'); ?>">Karyawan</a></li>
+			<li><a href="<?php echo site_url('admin/karyawan/'); ?>">User</a></li>
 			<li><a href="<?php echo site_url('admin/agenda/'); ?>">Agenda</a></li>
 			<li><a href="<?php echo site_url('admin/text_jalan/'); ?>">Text Jalan</a></li>
 			<li><a href="<?php echo site_url('admin/'); ?>">Laporan</a></li>

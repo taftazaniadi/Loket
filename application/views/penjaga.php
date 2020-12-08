@@ -25,7 +25,7 @@ $jenis_pelayanan = $this->session->userdata('jenis_loket');
 <audio id="suarabel" src="<?php echo base_url('audio/Airport_Bell_awal.mp3'); ?>"></audio>
 <audio id="suarabel_akhir" src="<?php echo base_url('audio/Airport_Bell_akhir.mp3'); ?>"></audio>
 <audio id="suarabelnomorurut" src="<?php echo base_url('audio/antrian/nomor-antrian.mp3'); ?>"></audio> 
-<audio id="diloket" src="<?php echo base_url('audio/antrian/silahkan-menuju.mp3'); ?>"></audio>
+<audio id="diloket" src="<?php echo base_url('audio/antrian/silahkan-menuju-counter.mp3'); ?>"></audio>
 <audio id="daak" src="<?php echo base_url('audio/antrian/daak.mp3'); ?>"></audio>
 <audio id="dpk" src="<?php echo base_url('audio/antrian/dpk.mp3'); ?>"></audio>
 <?php
@@ -527,7 +527,7 @@ else{ ?>
 							document.getElementById('diloket').play();
 						}, totalwaktu);
 			
-			totalwaktu=totalwaktu+1800;
+			totalwaktu=totalwaktu+2000;
 			setTimeout(function() {
 							document.getElementById('loket<?php echo $loket->loket; ?>').pause();
 							document.getElementById('loket<?php echo $loket->loket; ?>').currentTime=0;

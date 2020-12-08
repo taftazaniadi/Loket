@@ -40,7 +40,7 @@
 				<div class="loket" id="loket">
 					Antrian
 				</div>
-				<div class="antrian" id="antrian_new">
+				<div class="antrian" id="antrian_new" style="margin-top : 50px; margin-bottom : 50px;">
 					<?php $antri = $this->M_crud->get_max_id_new('transaksi', 'no_antrian', array('tgl' => date('dmY')))->row('no_antrian');
 					?>
 					<script type="text/javascript">
@@ -56,7 +56,7 @@
 					</script>
 				</div>
 				<hr class="new5">
-				<div class="antrian" id="namaLoket">
+				<div class="antrian" id="namaLoket" style="margin-top : 30px; margin-bottom : 30px;">
 					<?php $antri = $this->M_crud->get_loket_new('transaksi', 'loket', array('tgl' => date('dmY')))->row('loket');
 					?>
 					<script type="text/javascript">
@@ -65,7 +65,7 @@
 								type:"POST",
 								url: "<?php echo site_url('welcome/get_antri_loket/'); ?>",
 								success:function(data){	
-									document.getElementById("namaLoket").innerHTML = "Loket "+data;
+									document.getElementById("namaLoket").innerHTML = "Counter "+data;
 									}
 							})
 							}, 1000);
@@ -85,10 +85,10 @@
 			<div class="col-md-3">
 				<div class="box">
 					<div class="loket" id="loket">
-						Loket <?php echo $row->loket." - ".$row->jenis_loket; ?>
+						Counter <?php echo $row->loket." - ".$row->jenis_loket; ?>
 					</div>
 					<center>
-						<b><h2 style="font-size : 18px;">No Antrian</h2></b>
+						<b><p style="font-size : 14px;">No Antrian</p></b>
 					</center>
 					<div class="antrian" id="antrian<?php echo $row->id_loket; ?>">
 						<?php $antri = $this->M_crud->get_max_id('transaksi', 'no_antrian', array('id_loket' => $row->id_loket, 'tgl' => date('dmY')))->row('no_antrian');

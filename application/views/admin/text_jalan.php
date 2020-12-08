@@ -81,7 +81,6 @@
 									
 								</table>
 							</div>
-							<?php echo $halaman; ?>
 						</div>	
 					</div>
 				</div>

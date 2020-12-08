@@ -22,24 +22,6 @@ class Admin extends CI_Controller {
 		$config['total_rows']	 	= $this->M_crud->get_group_id('transaksi', 'tgl')->num_rows();
 		// $config['per_page']			= '6';
 		$config['num_links']		= 5;
-		// $config['full_tag_open']	= '<ul class="pagination">';
-		// $config['full_tag_close']	= '</ul>';
-		// $config['first_link']		= 'First';
-		// $config['last_link']		= 'Last';
-		// $config['first_tag_open']	= '<li>';
-		// $config['first_tag_close']	= '</li>';
-		// $config['prev_link']		= '&laquo';
-		// $config['prev_tag_open']	= '<li class="prev">';
-		// $config['porev_tag_close']	= '</li>';
-		// $config['next_link']		= '&raquo';
-		// $config['next_tag_open']	= '<li>';
-		// $config['next_tag_close']	= '</li>';
-		// $config['last_tag_open']	= '<li>';
-		// $config['last_tag_close']	= '</li>';
-		// $config['cur_tag_open']		= '<li class="active"><a href="">';
-		// $config['cur_tag_close']	= '</a></li>';
-		// $config['num_tag_open']		= '<li>';
-		// $config['num_tag_close']	= '</li>';
 
 		$this->pagination->initialize($config);
 
@@ -59,32 +41,12 @@ class Admin extends CI_Controller {
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
 		$config['base_url'] 		= site_url('admin/agenda/');
 		$config['total_rows']	 	= $this->M_crud->get_group_id('agenda', 'id_agenda')->num_rows();
-		$config['per_page']			= '7';
-		$config['num_links']		= 5;
-		$config['full_tag_open']	= '<ul class="pagination">';
-		$config['full_tag_close']	= '</ul>';
-		$config['first_link']		= 'First';
-		$config['last_link']		= 'Last';
-		$config['first_tag_open']	= '<li>';
-		$config['first_tag_close']	= '</li>';
-		$config['prev_link']		= '&laquo';
-		$config['prev_tag_open']	= '<li class="prev">';
-		$config['porev_tag_close']	= '</li>';
-		$config['next_link']		= '&raquo';
-		$config['next_tag_open']	= '<li>';
-		$config['next_tag_close']	= '</li>';
-		$config['last_tag_open']	= '<li>';
-		$config['last_tag_close']	= '</li>';
-		$config['cur_tag_open']		= '<li class="active"><a href="">';
-		$config['cur_tag_close']	= '</a></li>';
-		$config['num_tag_open']		= '<li>';
-		$config['num_tag_close']	= '</li>';
 
 		$this->pagination->initialize($config);
 
 		// buat pagination
 		$data['halaman'] = $this->pagination->create_links();
-		$data['hasil'] = $this->M_crud->fetch_data('agenda', 'id_agenda', $config['per_page'], $id);
+		$data['hasil'] = $this->M_crud->fetch_data('agenda', 'id_agenda', $id);
 
 		$this->load->view('layout', $data);
 	}
@@ -99,32 +61,12 @@ class Admin extends CI_Controller {
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
 		$config['base_url'] 		= site_url('admin/karyawan');;
 		$config['total_rows']	 	= $this->M_crud->get_group_id('karyawan', 'username')->num_rows();
-		$config['per_page']			= '7';
-		$config['num_links']		= 5;
-		$config['full_tag_open']	= '<ul class="pagination">';
-		$config['full_tag_close']	= '</ul>';
-		$config['first_link']		= 'First';
-		$config['last_link']		= 'Last';
-		$config['first_tag_open']	= '<li>';
-		$config['first_tag_close']	= '</li>';
-		$config['prev_link']		= '&laquo';
-		$config['prev_tag_open']	= '<li class="prev">';
-		$config['porev_tag_close']	= '</li>';
-		$config['next_link']		= '&raquo';
-		$config['next_tag_open']	= '<li>';
-		$config['next_tag_close']	= '</li>';
-		$config['last_tag_open']	= '<li>';
-		$config['last_tag_close']	= '</li>';
-		$config['cur_tag_open']		= '<li class="active"><a href="">';
-		$config['cur_tag_close']	= '</a></li>';
-		$config['num_tag_open']		= '<li>';
-		$config['num_tag_close']	= '</li>';
 
 		$this->pagination->initialize($config);
 
 		// buat pagination
 		$data['halaman'] = $this->pagination->create_links();
-		$data['hasil'] = $this->M_crud->fetch_data('karyawan', 'username', $config['per_page'], $id);
+		$data['hasil'] = $this->M_crud->fetch_data('karyawan', 'username', $id);
 
 		$this->load->view('layout', $data);
 	}
@@ -138,32 +80,12 @@ class Admin extends CI_Controller {
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
 		$config['base_url'] 		= site_url('admin/loket/');;
 		$config['total_rows']	 	= $this->M_crud->get_group_id('loket', 'id_loket')->num_rows();
-		$config['per_page']			= '7';
-		$config['num_links']		= 5;
-		$config['full_tag_open']	= '<ul class="pagination">';
-		$config['full_tag_close']	= '</ul>';
-		$config['first_link']		= 'First';
-		$config['last_link']		= 'Last';
-		$config['first_tag_open']	= '<li>';
-		$config['first_tag_close']	= '</li>';
-		$config['prev_link']		= '&laquo';
-		$config['prev_tag_open']	= '<li class="prev">';
-		$config['porev_tag_close']	= '</li>';
-		$config['next_link']		= '&raquo';
-		$config['next_tag_open']	= '<li>';
-		$config['next_tag_close']	= '</li>';
-		$config['last_tag_open']	= '<li>';
-		$config['last_tag_close']	= '</li>';
-		$config['cur_tag_open']		= '<li class="active"><a href="">';
-		$config['cur_tag_close']	= '</a></li>';
-		$config['num_tag_open']		= '<li>';
-		$config['num_tag_close']	= '</li>';
 
 		$this->pagination->initialize($config);
 
 		// buat pagination
 		$data['halaman'] = $this->pagination->create_links();
-		$data['hasil'] = $this->M_crud->fetch_data('loket', 'id_loket', $config['per_page'], $id);
+		$data['hasil'] = $this->M_crud->fetch_data('loket', 'id_loket', $id);
 
 		$this->load->view('layout', $data);
 	}
@@ -189,32 +111,12 @@ class Admin extends CI_Controller {
 		$data['text_jalan'] = $this->M_crud->show('text_jalan', 'id_text DESC')->result();
 		$config['base_url'] 		= site_url('admin/text_jalan/');
 		$config['total_rows']	 	= $this->M_crud->show('text_jalan', 'id_text DESC')->num_rows();
-		$config['per_page']			= '7';
-		$config['num_links']		= 5;
-		$config['full_tag_open']	= '<ul class="pagination">';
-		$config['full_tag_close']	= '</ul>';
-		$config['first_link']		= 'First';
-		$config['last_link']		= 'Last';
-		$config['first_tag_open']	= '<li>';
-		$config['first_tag_close']	= '</li>';
-		$config['prev_link']		= '&laquo';
-		$config['prev_tag_open']	= '<li class="prev">';
-		$config['porev_tag_close']	= '</li>';
-		$config['next_link']		= '&raquo';
-		$config['next_tag_open']	= '<li>';
-		$config['next_tag_close']	= '</li>';
-		$config['last_tag_open']	= '<li>';
-		$config['last_tag_close']	= '</li>';
-		$config['cur_tag_open']		= '<li class="active"><a href="">';
-		$config['cur_tag_close']	= '</a></li>';
-		$config['num_tag_open']		= '<li>';
-		$config['num_tag_close']	= '</li>';
 
 		$this->pagination->initialize($config);
 
 		// buat pagination
 		$data['halaman'] = $this->pagination->create_links();
-		$data['hasil'] = $this->M_crud->fetch_data('text_jalan', 'id_text', $config['per_page'], $id);
+		$data['hasil'] = $this->M_crud->fetch_data('text_jalan', 'id_text', $id);
 
 		$this->load->view('layout', $data);
 	}
@@ -233,11 +135,11 @@ class Admin extends CI_Controller {
 		}
 	}
 	public function edit_loket($id){
-		$loket=htmlspecialchars($this->input->post('loket'));
+		// $loket=htmlspecialchars($this->input->post('loket'));
 		$status=htmlspecialchars($this->input->post('status'));
-		$jenis=htmlspecialchars($this->input->post('jenis_loket'));
+		// $jenis=htmlspecialchars($this->input->post('jenis_loket'));
 		$where=array('id_loket' => $id);
-		$this->M_crud->edit('loket', array('loket' => $loket, 'status' => $status, 'jenis_loket' => $jenis), $where);
+		$this->M_crud->edit('loket', array('status' => $status), $where);
 		redirect('admin/loket');
 	}
 	public function del_loket($id){
@@ -285,7 +187,7 @@ class Admin extends CI_Controller {
 		$username=$this->input->post('username');
 		$nama=$this->input->post('nama');
 		$telp=$this->input->post('telp');
-		$alamat=$this->input->post('alamat');
+		// $alamat=$this->input->post('alamat');
 		$pass=sha1(md5($this->input->post('password')));
 		$level=$this->input->post('level');
 		$id_loket =$this->input->post('id_loket');
@@ -297,7 +199,7 @@ class Admin extends CI_Controller {
 			redirect('admin/karyawan/');
 		}
 		else{
-			$data=array('username' => $username, 'nama' => $nama, 'telp' => $telp, 'alamat' => $alamat, 'password' => $pass, 'level' => $level, 'id_loket' => $id_loket);
+			$data=array('username' => $username, 'nama' => $nama, 'telp' => $telp, 'alamat' => null, 'password' => $pass, 'level' => $level, 'id_loket' => $id_loket);
 			$this->M_crud->add('karyawan',  $data);
 			$this->session->set_flashdata("pesan", "<br><div class='alert alert-success'>
               		 <p class='text-danger'><center>Karyawan berhasil ditambah</center></p></div>");
@@ -314,10 +216,10 @@ class Admin extends CI_Controller {
 		$username = $this->input->post('username');
 		$nama = $this->input->post('nama');
 		$telp = $this->input->post('telp');
-		$alamat = $this->input->post('alamat');
+		// $alamat = $this->input->post('alamat');
 		$level = $this->input->post('level');
 
-		$data = array('nama' => $nama, 'telp' => $telp, 'alamat' => $alamat, 'password' => $pass, 'level' => $level);
+		$data = array('nama' => $nama, 'telp' => $telp, 'alamat' => null, 'password' => $pass, 'level' => $level);
 		$where = array('username' => $username);
 		$this->M_crud->edit('karyawan', $data, $where);
 

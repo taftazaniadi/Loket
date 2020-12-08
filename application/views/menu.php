@@ -1,5 +1,5 @@
 <?php
-if($this->session->userdata('level') == 'Penjaga')
+if($this->session->userdata('level') == 'User')
 {
  echo "<ul style='float:left;'>
 			<li>Hi ".$this->session->userdata('nama')."</li>

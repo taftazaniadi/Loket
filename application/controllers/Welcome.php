@@ -82,7 +82,7 @@ class Welcome extends CI_Controller {
 
 	}
 	public function logout(){
-		if($this->session->userdata('level') == 'Penjaga'){
+		if($this->session->userdata('level') == 'User'){
 			
 			$this->M_crud->edit('loket', array('status' => 0), array('id_loket' => $this->session->userdata('loket')));
 		}

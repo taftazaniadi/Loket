@@ -5,7 +5,7 @@ class Penjaga extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('M_crud');
-		if($this->session->userdata('level') !== 'Penjaga'){
+		if($this->session->userdata('level') !== 'User'){
 			redirect('welcome/');
 		}
 	}

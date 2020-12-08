@@ -87,6 +87,13 @@ class M_crud extends CI_Model {
 
 		if($table == "karyawan"){
 			$this->db->join('loket', 'karyawan.id_loket = loket.id_loket', 'left');
+			$this->db->order_by('jenis_loket', 'ASC');
+			$this->db->order_by('loket', 'ASC');
+		}
+
+		if($table == "loket"){
+			$this->db->order_by('jenis_loket', 'ASC');
+			$this->db->order_by('loket', 'ASC');
 		}
 
 		$this->db->group_by($field);
@@ -97,7 +104,7 @@ class M_crud extends CI_Model {
 		return $data->result();
 	}
 	public function report(){
-		$sql = $this->db->query('SELECT jenis_pelayanan, tgl, COUNT(id_transaksi) AS jml FROM transaksi GROUP BY tgl, jenis_pelayanan ORDER BY tgl DESC');
+		$sql = $this->db->query('SELECT jenis_pelayanan, tgl, COUNT(id_transaksi) AS jml FROM transaksi GROUP BY tgl, jenis_pelayanan ORDER BY id_transaksi DESC');
 
 		return $sql->result();
 	}

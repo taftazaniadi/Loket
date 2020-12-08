@@ -5,14 +5,14 @@
 			?>
 			<div class="box">
 				<div class="loket">
-					Karyawan
+					User
 				</div>
 				<div>
 					<div class="col-md-2"></div>
 					<div class="row">
 						<div class="col-md-8">
 							<!-- <center> -->
-								<a href="#add" class="btn btn-primary" style="margin-top : 10px; margin-bottom : 10px;" data-toggle="modal">Tambah Karyawan</a>
+								<a href="#add" class="btn btn-primary" style="margin-top : 10px; margin-bottom : 10px;" data-toggle="modal">Tambah User</a>
 							<!-- </center> -->
 							<br>
 							<div class="table-responsive">
@@ -22,7 +22,7 @@
                       <th width="3px">No</th>
                       <th width="200px;">Nama Karyawan</th>
                       <th width="130px">Telp</th>
-                      <th>Alamat</th>
+                      <!-- <th>Alamat</th> -->
                       <th>username</th>
                       <th>Level</th>
                       <th>Loket</th>
@@ -35,14 +35,14 @@
                     foreach ($hasil as $row) { 
                       $no++;
                       ?>
-                      <tr style="text-align:center;">
+                      <tr>
                         <td><?php echo $no; ?></td>
                         <td><?php echo $row->nama; ?></td>
                         <td><?php echo $row->telp; ?></td>
-                        <td><?php echo $row->alamat; ?></td>
+                        <!-- <td><?php echo $row->alamat; ?></td> -->
                         <td><?php echo $row->username; ?></td>
                         <td><?=$row->level?></td>
-                        <td><?=$row->loket." - ".$row->jenis_loket?></td>
+                        <td><?=$row->jenis_loket." - ".$row->loket?></td>
                         <td><a href="#<?php echo $row->username; ?>" class="btn btn-success" data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;<a href="<?php echo site_url('admin/del_karyawan/'.$row->username); ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
                       </tr>
 
@@ -64,8 +64,8 @@
                                     <input type="text" name="nama" class="form-control" pattern="[0-9A-Za-z .,-]{0,50}" required="" maxlength="50" value="<?php echo $row->nama; ?>">
                                   <label for="sel1">Nomer Telp</label>
                                     <input type="text" name="telp" class="form-control" pattern="[0-9]{0,50}" required="" maxlength="50" value="<?php echo $row->telp; ?>">
-                                  <label for="sel1">Alamat</label>
-                                    <textarea name="alamat" class="form-control"><?php echo $row->alamat; ?></textarea>
+                                  <!-- <label for="sel1">Alamat</label>
+                                    <textarea name="alamat" class="form-control"><?php echo $row->alamat; ?></textarea> -->
                                 </div>
                                 <div class="col-md-6">
                                   <label for="sel1">Level</label>
@@ -82,7 +82,7 @@
                                     <select name="level" class="form-control" required="" onchange="cek()" id="lev">
                                       <option value="">--Pilih Level--</option>
                                       <option <?php echo $selected; ?>>Admin</option>
-                                      <option value="Penjaga" <?php echo $selected1; ?>>Penjaga Loket</option>
+                                      <option value="User" <?php echo $selected1; ?>>User</option>
                                     </select>
                                    
                                 <?php if($row->level != "Admin"):?>
@@ -127,7 +127,6 @@
                   </tbody>
 								</table>
 							</div>
-							<?php echo $halaman; ?>
 						</div>	
 					</div>
 				</div>
@@ -153,15 +152,15 @@
               <input type="text" name="nama" class="form-control" pattern="[0-9A-Za-z .,-]{0,50}" required="" maxlength="50" placeholder="Masukan Nama">
             <label for="sel1">Nomer Telp</label>
               <input type="text" name="telp" class="form-control" pattern="[0-9]{0,50}" required="" maxlength="50" placeholder="Masukan Nomer Telp">
-            <label for="sel1">Alamat</label>
-              <textarea name="alamat" class="form-control" placeholder="Masukan Nama"></textarea>
+            <!-- <label for="sel1">Alamat</label>
+              <textarea name="alamat" class="form-control" placeholder="Masukan Nama"></textarea> -->
           </div>
           <div class="col-md-6">
           	<label for="sel1">Level</label>
               <select name="level" class="form-control" required="" onchange="cek1()" id="lev1">
                 <option value="">--Pilih Level--</option>
                 <option>Admin</option>
-                <option value="Penjaga">Penjaga Loket</option>
+                <option value="Penjaga">User</option>
               </select>
             <label for="sel1" id="l1">Loket</label>
               <select name="id_loket" class="form-control" id="id_loket1">
