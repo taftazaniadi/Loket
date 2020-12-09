@@ -71,6 +71,11 @@ header {
 .instansi a{
 	text-decoration: none;
 }
+h1{
+	color: white;
+	text-align: center;
+	font-size: 40px;
+}
 h3{
 	color: white;
 	text-align: center;

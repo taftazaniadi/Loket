@@ -43,9 +43,9 @@ else{
 			</div>
 			<div class="col-md-8">
 				<div class="instansi">
-					<h3 onclick="window.location='<?php echo site_url($site); ?>'"><?php echo $instansi->instansi; ?></h3>
+					<h1 onclick="window.location='<?php echo site_url($site); ?>'">UNIVERSITAS AMIKOM YOGYAKARTA</h1>
 					<!-- <h5 class="hidden-xs">No. Telp <?php echo $instansi->telp; ?></h5> -->
-					<h5 id="alamat" class="hidden-xs"><?php echo $instansi->alamat; ?></h5>
+					<h5 id="alamat" class="hidden-xs">Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</h5>
 				</div>
 			</div>
 		</div>
