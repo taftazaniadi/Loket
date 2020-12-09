@@ -107,7 +107,7 @@ else{ ?>
 			foreach ($lok as $l) { ?>
 				<div class="box">
 					<div class="loket">
-						Loket <?php echo $l->loket." - ".$l->jenis_loket; ?>
+						Counter <?php echo $l->loket." - ".$l->jenis_loket; ?>
 					</div>
 					<div>
 						<center>
@@ -125,7 +125,7 @@ else{ ?>
 			?>
 			<div class="box">
 				<div class="loket">
-					Loket <?php echo $loket->loket." - ".$loket->jenis_loket; ?>
+					Counter <?php echo $loket->loket." - ".$loket->jenis_loket; ?>
 				</div>
 				<div class="agenda">
 					<h1 id="a"><?php echo $antrian; ?></h1>
@@ -143,7 +143,7 @@ else{ ?>
 			foreach ($lok as $l) { ?>
 				<div class="box">
 					<div class="loket">
-						Loket <?php echo $l->loket." - ".$l->jenis_loket; ?>
+						Counter <?php echo $l->loket." - ".$l->jenis_loket; ?>
 					</div>
 					<div>
 						<center>
