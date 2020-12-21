@@ -35,7 +35,7 @@
                       <tr style="text-align:center;">
                         <td><?php echo $no; ?></td>
                         <td>Counter <?php echo $row->loket; ?></td>
-                        <td><?php if($row->status == 0){echo "Tutup";}else{echo "Buka";} ?></td>
+                        <td><?php if($row->status != 0){echo "Tutup";}else{echo "Buka";} ?></td>
                         <td><?=$row->jenis_loket?></td>
                         <td>
                           <a href="#<?php echo $row->id_loket; ?>" data-toggle="modal" class="btn btn-success"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -71,8 +71,8 @@
                                     }
                                     ?>
                                       <select name="status" class="form-control">
-                                        <option value="0" <?php echo $a; ?>>Tutup</option>
-                                        <option value="1" <?php echo $b; ?>>Buka</option>
+                                        <option value="0" <?php echo $a; ?>>Buka</option>
+                                        <option value="1" <?php echo $b; ?>>Tutup</option>
                                       </select>
                                   </div>
                                 <div class="col-md-3"></div>
