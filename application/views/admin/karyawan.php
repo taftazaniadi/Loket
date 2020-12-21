@@ -160,7 +160,7 @@
               <select name="level" class="form-control" required="" onchange="cek1()" id="lev1">
                 <option value="">--Pilih Level--</option>
                 <option>Admin</option>
-                <option value="Penjaga">User</option>
+                <option value="User">User</option>
               </select>
             <label for="sel1" id="l1">Loket</label>
               <select name="id_loket" class="form-control" id="id_loket1">
@@ -218,7 +218,7 @@
   })
   function cek(){
     lev = document.getElementById('lev').value;
-    if(lev == 'Penjaga'){
+    if(lev == 'User'){
       $("#id_loket").show();
       $("#l").show();
     }
@@ -229,7 +229,7 @@
   }
   function cek1(){
     lev = document.getElementById('lev1').value;
-    if(lev == 'Penjaga'){
+    if(lev == 'User'){
       $("#id_loket1").show();
       $("#l1").show();
     }
